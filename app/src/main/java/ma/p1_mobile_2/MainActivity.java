@@ -51,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
         double surfaceValue = Double.parseDouble(surfaceText);
         int nombrePiecesValue = Integer.parseInt(nombrePiecesText);
         double impotDeBase = surfaceValue * 2;
-        double impotSupplementaire = nombrePiecesValue * 50 + (piscine.isChecked() ? 100 : 0);
+        double impotSupplementaire = nombrePiecesValue * 50;
+        if (piscine.isChecked()) {
+            impotSupplementaire += 100;
+        }
+
         double impotTotal = impotDeBase + impotSupplementaire;
 
         resultat.setText("Impôt de base : " + impotDeBase + "\nImpôt supplémentaire : " + impotSupplementaire + "\nImpôt total : " + impotTotal);
